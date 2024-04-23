@@ -32,10 +32,10 @@
 
     <profiles>
         <profile>
+            <id>dev</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <id>dev</id>
             <properties>
                 <path>d:\\JSONTest\\myJakartaDev.json</path>
             </properties>
@@ -48,10 +48,10 @@
             </build>
         </profile>
         <profile>
+            <id>prod</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
-            <id>prod</id>
             <properties>
                 <path>d:\\JSONTest\\myJakartaProd.json</path>
             </properties>
@@ -95,14 +95,18 @@
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.3.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
                     <configuration>
                         <archive>
                             <manifest>
-                                <addClasspath>true</addClasspath>
-                                <classpathPrefix>lib/</classpathPrefix>
                                 <mainClass>by.alst.Main</mainClass>
                             </manifest>
                         </archive>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
                     </configuration>
                 </plugin>
                 <plugin>

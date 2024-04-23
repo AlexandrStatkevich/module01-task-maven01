@@ -2,6 +2,7 @@ package by.alst;
 
 import java.util.List;
 import java.util.Objects;
+
 public class MyJakarta {
     private String version;
     private String description;
